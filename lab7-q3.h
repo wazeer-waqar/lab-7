@@ -1,10 +1,36 @@
-#include "lab7_q2.h"
+#ifndef LAB7_Q3_H
+#define LAB7_Q3_H
 #include <iostream>
 using namespace std;
-
-int main() {
-    Derived1 d1(2, 4);
-    Derived2 d2(10, 20, 30);
-    d2.print();
-    return 0;
-}
+class Base {
+protected:
+    int Base_value;
+public:
+    Base(int a);
+    Base(const Base& obj);
+    Base& operator=(const Base& obj);
+    ~Base();
+    void print();
+    void setValue(int a);
+};
+class Derived1 : public Base {
+protected:
+    int Derived1_data;
+public:
+    Derived1(int a, int b);
+    Derived1(const Derived1& obj);
+    Derived1& operator=(const Derived1& obj);
+    ~Derived1();
+    void print();
+};
+class Derived2 : public Derived1 {
+private:
+    int derived2_data;
+public:
+    Derived2(int a, int b, int c);
+    Derived2(const Derived2& obj);
+    Derived2& operator=(const Derived2& obj);
+    ~Derived2();
+    void print();
+};
+#endif
